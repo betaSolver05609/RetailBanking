@@ -1,0 +1,50 @@
+<div ng-controller="login_controller" class="login"  style="background-image: url(images/loginback.jpg);
+	background-size:cover;
+	background-positon:fixed;
+	height: 100vh;
+	overflow: hidden">
+<div class="container w3-container w3-center w3-animate-zoom">    
+<div class="row">
+	 <div class="col s2"></div>
+    <div class="col s8 ">
+      <div class="card">
+        <div class="card-content">
+        <form name ="f" method="post" ng-submit="loginSubmission(x)">
+        <div class="row card-title center-align" id="login-header">
+          Login        
+        </div>
+          <div class="row">
+          <div class="col s1">
+          </div>
+        <div class="input-field col s10">
+          <i class="material-icons prefix">account_circle</i>
+          <input ng-change="err=''" id="icon_one" type="text" ng-model="x.username" class="validate" ng-required="true">
+          <label for="icon_one">Username*</label>
+        </div>
+        <div class="col s1">
+          </div>         
+        </div>
+        <div class="row">
+          <div class="col s1">
+          </div>
+        <div class="input-field col s10">
+          <i class="material-icons prefix">vpn_key</i>
+          <input ng-change="err=''" id="icon_two" type="password" ng-model="x.password" class="validate" ng-required="true">
+          <label for="icon_two">Password*</label>
+        </div>
+        <div class="col s1">
+          </div>         
+        </div>
+        <div class="row" align = "center">
+  		<button class="btn waves-effect waves-light" type="submit" name="action">Login
+   		 <i class="material-icons left">lock_open</i>
+  		</button>                
+        </div>
+        <span style="color:red;font-size:1vw;">{{err}}</span>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>

@@ -1,0 +1,73 @@
+<div id="heading" align="center">View By Account Id</div>
+<div>
+<br>
+<form name="viewall" ng-submit="displayData(accountId,startDate,endDate)" ng-init="exists='true'">
+		<div class="row">
+		 <div class="input-field col s4">
+			<i class="material-icons prefix">account_circle</i>
+          <input  ng-model="accountId" name="accountId"  id="accountId" type="text" class="validate"  ng-change="checkId(accountId)" ng-trim="false" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-required="true" >
+          <label for="accountId">Account Id</label>
+          <h6 style="color:red;font-size:0.8vw" ng-if="viewall.accountId.$dirty && viewall.accountId.$error.required">Required field</h6>
+                 <h6 style="color:red;font-size:0.8vw" ng-if="exists=='false'">Account Id does not exist<h6>
+           		<h6 style="color:red;font-size:0.8vw" ng-if="viewall.accountId.$error.pattern">AccountId does not support special characters</h6>
+          </div>
+		<div class="input-field col s4">
+          <i class="material-icons prefix">date_range</i>
+          <input type="date" ng-model="startDate"  name="startDate" class="datepicker" id="start_date" ng-required="true">
+          <label for="start_date">Start Date</label>
+           <h6 style="color:red;font-size:0.8vw" ng-if="viewall.startDate.$dirty && viewall.startDate.$error.required">Required field</h6>
+          
+          </div>
+          <div class="input-field col s4">
+          <i class="material-icons prefix">date_range</i>
+          <input type="date" ng-model="endDate" name="endDate" class="datepicker" id="end_date" ng-required="true">
+          <label for="end_date">End Date</label>
+          <h6 style="color:red;font-size:0.8vw" ng-if="viewall.endDate.$dirty && viewall.endDate.$error.required">Required field</h6>
+          
+          </div>
+          </div>
+          <div class="row">
+           <div class="col s4"></div>
+            <div class="input-field col s4">
+           <button class="btn waves-effect waves-light" type="submit" name="action" ng-disabled="viewall.$invalid">Submit
+    		<i class="material-icons right">send</i>
+  			</button>
+  			</div>
+          </div>   
+<br>
+</form>
+<div ng-if="displayTable">
+ <table>
+	<tr>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'customerId'; reverse=!reverse">Transaction Id</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'ssn'; reverse=!reverse">Account Id</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'name'; reverse=!reverse">Customer Id</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'contactNo'; reverse=!reverse">Transaction Type</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'email'; reverse=!reverse">Amount</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+	</tr>
+	<tr dir-paginate="x in tableData | orderBy:sortField:reverse |filter: search | itemsPerPage:5">
+		<td>{{x.transactionId}}</td>
+		<td>{{x.accountId}}</td>
+		<td>{{x.customerId}}</td>
+		<td>{{x.transactionType}}</td>
+		<td>{{x.amount}}</td>
+	</tr>
+</table>
+<dir-pagination-controls max-size="5"> </dir-pagination-controls>
+</div>
+</div>

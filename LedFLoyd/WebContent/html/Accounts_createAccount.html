@@ -1,0 +1,39 @@
+<div id="heading" align="center">Create Account</div>
+<div class="container">
+	<form name="account_create" ng-submit="submit(x)" ng-init="exists='true'">
+       
+       		<div class="row">
+      		 <div class="input-field col s6">
+			<i class="material-icons prefix">mood</i>
+          <input ng-model="x.customerId" name="customerId" id="customerId" type="text" ng-blur="checkId(x.customerId)" class="validate" ng-required="true" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-trim="false">
+          <label for="customerId">Customer Id</label>
+          <h6 style="color:red;font-size:0.8vw" ng-if="account_create.customerId.$dirty && account_create.customerId.$error.required">Required field</h6>
+          <h6 style="color:red;font-size:0.8vw" ng-if="exists=='false'">Customer Id does not exist<h6>
+           <h6 style="color:red;font-size:0.8vw" ng-if="account_create.customerId.$error.pattern">CustomerId does not support special characters</h6>
+        	</div>
+			  
+        	<div class="input-field col s6">
+			<i class="material-icons prefix">monetization_on</i>
+          <input ng-model="x.balance" name="balance" id="balance" type="number" class="validate" min="1" max="999999999" ng-required="true" ng-pattern="/^[0-9]*$/" ng-trim="false">
+          <label for="balance">Balance</label>
+           <h6 style="color:red;font-size:0.8vw" ng-if="account_create.balance.$error.pattern">Please enter numbers only</h6>
+            <h6 style="color:red;font-size:0.8vw" ng-if="account_create.balance.$dirty && account_create.balance.$error.required">Required field</h6>
+        	</div>
+  			</div>
+  			<div class="row">
+  			<div class="col s3"></div>
+  				 <select class="input-field browser-default col s6" ng-model="x.accountType" name="accountType">
+			    <option value="" disabled selected>Select your AccountType</option>
+			     <option value="Saving">Savings</option>
+			    <option value="Current">Current</option>
+			  </select>
+			  <div class="col s3"></div>
+  			</div>
+  			
+  			<div class="row center">
+         <button class="btn waves-effect waves-light" type="submit" name="action" ng-disabled="account_create.$invalid || exists=='false' || x.accountType==null">Submit
+    		<i class="material-icons right">send</i>
+  			</button>
+  			</div>
+  		</form>
+</div>

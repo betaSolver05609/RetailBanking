@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-ui-router.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/angular-idle.min.js"></script>
+<script src="js/Chart.bundle.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/dirPagination.js"></script>
+<link rel="stylesheet" href="css/materialize.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+<title>LedFloyd</title>
+</head>
+<body ng-app="LedFloyd"">
+ <div class="navbar-fixed">
+	<nav ng-controller="nav_controller">
+	    <div class="nav-wrapper pink lighten-1">
+	    	<span class="black">
+	      <a ui-sref="home" class="brand-logo hide-on-med-and-down"><img src="images/logo_sm.png"></a>
+	      <ul class="right">
+	       <!--  <li><a ui-sref="login" ng-click="log()">{{displayValue}}</a></li> -->
+	        <li><a style="border: 2px solid #fff;" class="waves-effect waves-light btn " ui-sref="login" ng-click="log()" >
+	        <i ng-if="displayValue!='Login'" class="material-icons right">exit_to_app</i>
+	       	<i ng-if="displayValue=='Login'" class="material-icons right">lock</i>
+	        {{displayValue}}</a></li>
+	        <li><a ui-sref="about">About Us</a></li>
+	        <li><a ui-sref="contactUs">Contact Us</a></li>
+	      </ul></span>
+	    </div>
+	  </nav>
+  </div>
+<div ui-view>
+
+	  <div>{{displayName}}</div>
+</div>
+</body>
+</html>

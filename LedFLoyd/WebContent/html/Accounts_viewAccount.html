@@ -1,0 +1,60 @@
+<div id="heading" align="center">View Account by {{display(parameter)}}</div>
+<div class="container">
+	<form name="customer_update" ng-submit="submit(value,parameter)">
+			<div class="row">
+			  <select ng-model="parameter" name="options" class="input-field browser-default col s5">
+			    <option value="" disabled selected>Select your parameter</option>
+			    <option value="customerId">Customer Id</option>
+			   	<option value="accountId">Account Id</option>
+			  </select>
+			  <div class="col s1"></div>
+		          <div class="input-field col s6">
+		          <i class="material-icons prefix">pageview</i>
+		          <input id="icon_prefix" type="text" name="value" ng-model="value" class="validate" ng-required="true" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-trim="false">
+		          <label for="icon_prefix">Enter the {{display(parameter)}}</label>
+		           <h6 style="color:red;font-size:0.8vw" ng-if="customer_update.value.$dirty && customer_update.value.$error.required">Required field</h6>
+           		<h6 style="color:red;font-size:0.8vw" ng-if="customer_update.value.$error.pattern">No special characters</h6>
+		        </div>	
+  			</div>
+  			<div class="row center">
+  			 <button class="btn waves-effect waves-light" type="submit" name="action" ng-disabled="customer_update.$invalid || parameter==null">Submit
+    	<i class="material-icons right">send</i>
+  		</button>
+  			</div>
+  		</form>
+  		<div ng-if="displayTable" class="w3-container w3-center w3-animate-left">
+  			 <table>
+	<tr>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'accountId'; reverse=!reverse">Account Id</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'customerId'; reverse=!reverse">Customer Id</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'accountType'; reverse=!reverse">Type</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'balance'; reverse=!reverse">Balance</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'creationDate'; reverse=!reverse">Creation Date</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th>DELETE</th>
+	</tr>
+	<tr ng-repeat="x in tableData | orderBy:sortField:reverse |filter: search">
+		<td>{{x.accountId}}</td>
+		<td>{{x.customerId}}</td>
+		<td>{{x.accountType}}</td>
+		<td>{{x.balance}}</td>
+		<td>{{x.creationDate}}</td>
+		<td><a class="waves-effect waves-light btn" ng-click="deletion(x.accountId)">DELETE</a></td>
+	</tr>
+</table>
+  		</div>
+</div>

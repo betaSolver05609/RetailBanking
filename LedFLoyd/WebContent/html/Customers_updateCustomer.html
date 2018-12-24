@@ -1,0 +1,88 @@
+<div id="heading" align="center">Update Customer</div>
+<div class="container">
+	<form name="customer_update" ng-submit="updation(value,parameter)" ng-init="change=false;">
+		<div class = "row">
+		<div class="input-field col s2">
+	       <p>
+		      <label>
+		        <input name="group1" ng-model="parameter" value="customerId" type="radio" checked />
+		        <span>Id</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input name="group1" ng-model="parameter" value="ssn" type="radio" />
+		        <span>SSN</span>
+		      </label>
+		    </p>
+   		 </div>
+   		 <div class="col s1"></div>
+     	<div class="input-field col s6">
+		  <i class="material-icons prefix">pageview</i>
+		   <input id="icon_prefix" type="text" name="value" ng-model="value" class="validate" ng-required="true">
+		   <label for="icon_prefix">Enter the {{display(parameter)}}</label>
+		             <h6 style="color:red;font-size:0.8vw" ng-if="customer_update.value.$dirty && customer_update.value.$error.required">Required field</h6>
+		        </div>	
+		  <div class="input-field col s3">
+		   		<button class="btn waves-effect waves-light" type="submit" name="action" ng-disabled="customer_update.$invalid">Submit
+    			<i class="material-icons right">send</i>
+  				</button>
+			</div>
+			 </div>
+  		</form>
+  		<div ng-if="displayData">
+  			<form name="customer_update2" ng-submit="update()">
+      		 <div class="input-field">
+			<i class="material-icons prefix">lock</i>
+          <input ng-model="x.customerId" name="x.customerId" id="customerId" type="text"  readonly>
+          <label class="active" for="customerId">Customer Id</label>
+        	</div>
+        	
+      		<div class="input-field">
+			<i class="material-icons prefix">lock</i>
+          <input ng-model="x.ssn" name="x.ssn" id="ssn" type="text" readonly>
+          <label class="active" for="ssn">SSN</label>
+        	</div>
+        	
+        	<div class="input-field">
+			<i class="material-icons prefix">mood</i>
+          <input  ng-model="x.name" ng-change="change=true" name="name" id="name" type="text" class="validate" ng-required="true" ng-pattern="/^[a-zA-Z\s]*$/" ng-trim="false">
+          <label class="active" for="name">Customer Name</label>
+            <h6 style="color:red;font-size:0.8vw" ng-if="customer_update2.name.$error.pattern">Name does not support special characters</h6>
+          <h6 style="color:red;font-size:0.8vw" ng-if="customer_update2.name.$dirty && customer_update2.name.$error.required">Required field</h6>
+        	</div>
+        	
+        	<div class="input-field">
+			<i class="material-icons prefix">contact_phone</i>
+          <input ng-model="x.contactNo" ng-change="change=true" name="contactNo"  id="contactNo" type="number" class="validate" ng-minlength="10" ng-maxlength="10" ng-required="true" ng-pattern="/^[0-9]*$/" ng-trim="false">
+          <label class="active" for="contactNo">Contact Number</label>
+       <h6 style="color:red;font-size:0.8vw" ng-if="customer_update2.contactNo.$error.minlength">The Contact Number is of 10 digit</h6>
+        <h6 style="color:red;font-size:0.8vw" ng-if="customer_update2.contactNo.$error.maxlength">Contact Number is of 10 digit</h6>
+         <h6 style="color:red;font-size:0.8vw" ng-if="customer_update2.contactNo.$error.pattern">Please enter numbers only</h6>
+          <h6 style="color:red;font-size:0.8vw" ng-if="customer_update2.contactNo.$dirty && customer_update2.contactNo.$error.required">Contact Number is Required</h6>
+        	</div>
+        	
+        	<div class="input-field">
+			<i class="material-icons prefix">email</i>
+          <input ng-model="x.email" ng-change="change=true" name="email" id="email" type="email" class="validate" ng-required="true" ng-trim="false">
+          <label class="active" for="email">Email</label>
+             <h6 style="color:red;font-size:0.8vw" ng-show="customer_update2.email.$error.email">Invalid email</h6>
+          <h6 style="color:red;font-size:0.8vw" ng-show="customer_update2.email.$dirty && customer_create2.email.$error.required">Please Enter Email</h6>
+        	</div>
+        	
+        	<div class="input-field">
+			<i class="material-icons prefix">location_city</i>
+          <input ng-model="x.city" ng-change="change=true" name="city" id="city" type="text" class="validate" ng-required="true" ng-pattern="/^[a-zA-Z0-9 .,-/]+$/" ng-trim="false">
+          <label class="active" for="city">City</label>
+              <h6 style="color:red;font-size:0.8vw" ng-show="customer_update2.city.$dirty && customer_update2.city.$error.required">Please Enter City</h6>
+        	</div>
+        
+        	<div class="center">
+         <button class="btn waves-effect waves-light" type="submit" name="action" ng-disabled="customer_update2.$invalid || !change">Submit
+    		<i class="material-icons right">send</i>
+  			</button>
+  			</div>
+  		</form>
+  		</div>
+  		
+</div>

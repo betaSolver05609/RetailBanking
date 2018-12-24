@@ -1,0 +1,230 @@
+import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+
+*{
+  box-sizing: border-box;
+}
+
+.cta {
+    display: flex;
+    padding: 10px 45px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    color: white;
+    background: #6225E6;
+    transition: 1s;
+    box-shadow: 6px 6px 0 black;
+    transform: skewX(-15deg);
+}
+
+.cta:focus {
+   outline: none; 
+}
+
+.cta:hover {
+    transition: 0.5s;
+    box-shadow: 10px 10px 0 #FBC638;
+}
+
+.cta span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 0px;
+}
+
+.cta:hover  span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 45px;
+}
+
+#cta  span {
+    transform: skewX(15deg) 
+  }
+
+#cta  span:nth-child(2) {
+    width: 20px;
+    margin-left: 30px;
+    position: relative;
+    top: 12%;
+  }
+  
+/**************SVG****************/
+
+path.one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+}
+
+path.two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+}
+
+.cta:hover path.three {
+    animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover path.one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover path.two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+
+@keyframes color_anim {
+    0% {
+        fill: white;
+    }
+    50% {
+        fill: #FBC638;
+    }
+    100% {
+        fill: white;
+    }
+}
+
+/*end*/
+@media only screen and (min-width: 993px){
+nav a.button-collapse {
+    display: block;
+}
+}
+html, body {
+    height:100%;
+} 
+#login-header
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 2.7vw;
+}
+.card {
+  top: 50px;
+  position: relative;
+  z-index: 2;
+  width:100%;
+}
+dir-pagination-controls .ng-scope .active .ng-binding{
+	display: inline-block;
+	background: #d500f9;
+	opacity: 0.9;
+}
+.w3-btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.highlight {
+  background-color: #111;
+  color: red;
+}
+
+/* home */
+html,
+body {
+  margin: 0;
+}
+
+.hero {
+  background-size: 150%;
+  background-repeat: no-repeat;
+  background-position: left;
+  -webkit-animation: slide 40s ease;
+  transform: translate3d(0,0,0);
+  height: 100vh;
+}
+
+.hero:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(76,56,75,.8)
+}
+
+.hero__content {
+  z-index: 101;
+  position: relative;
+}
+
+@-webkit-keyframes slide {
+  0%   { background-position: left; }
+  50%   { background-position: right; }
+  100% { background-position: left; }
+}
+
+.hero h1 {
+  font-size: 15vw;
+  font-weight: 100;
+  color: white;
+  margin: 0;
+}
+
+.hero__content {
+    padding: 200px 100px;
+}
+
+
+/* Sidebar */
+
+.w3-sidebar{
+	/*background-image: linear-gradient(#00838f, #b2ebf2);*/
+	background-image: linear-gradient(rgb(0, 138, 230),rgb(0, 230, 230));
+}
+
+.w3-btn{
+	background-color: Transparent;
+	border-radius: 15px;
+	color: white;
+}
+.w3-btn:hover
+{	
+	box-shadow:black;
+	background-color: black ;
+	color:yellow;
+}
+
+#swap 
+{	
+	cursor:pointer;
+}
+
+#swap:hover 
+{	
+	color:yellow;
+}
+
+/* heading */
+#heading{
+	font-size: 3vw;
+ 	 font-weight: 100;
+}
+#aboutus{
+	 margin-left: 9vw;
+	 margin-right: 2vw;
+}
+#accountbg{
+	 background-image: linear-gradient(rgb(148,0,211), rgb(238,130,238));
+	 height: 100vh;
+	 opacity: 0.8;
+}
+#accountHeading{
+	color: white;
+	font-size: 7vw;
+}
+#accountContent{
+	color: white;
+	font-size: 1.5vw;
+}
+#cashierbg{
+	 background-image: linear-gradient(#00838f, #b2ebf2);
+	 height: 100vh;
+	 opacity: 0.8;
+}

@@ -1,0 +1,56 @@
+<div id="heading" align="center">Create Customer</div>
+<div class="container">
+	<form name="customer_create" ng-submit="customer_submit(x)" ng-init="exists=false">
+       
+      		 <div class="input-field">
+			<i class="material-icons prefix">lock</i>
+          <input ng-model="x.ssn" name="ssn"  id="ssn" type="text" class="validate" min="100000000" max="999999999" ng-minlength="9" ng-change="checkssn(x.ssn)" ng-maxlength="9" ng-required="true" ng-pattern="/^[0-9]*$/" ng-trim="false">
+          <label for="ssn">SSN</label>
+         
+        <h6 style="color:red;font-size:0.8vw" ng-if="customer_create.ssn.$error.minlength">The SSNID is of length 9</h6>
+        <h6 style="color:red;font-size:0.8vw" ng-if="customer_create.ssn.$error.maxlength">The SSNID is of length 9</h6>
+        <h6 style="color:red;font-size:0.8vw" ng-if="customer_create.ssn.$error.pattern">Please enter numbers only</h6>
+        <h6 style="color:red;font-size:0.8vw" ng-if="customer_create.ssn.$dirty && customer_create.ssn.$error.required">SSNID is Required</h6>
+        <h6 style="color:red;font-size:0.8vw" ng-if="exists">Already exists</h6>
+        </div>
+        	
+        	<div class="input-field">
+			<i class="material-icons prefix">mood</i>
+          <input  ng-model="x.name" name="name"  id="name" type="text" class="validate" ng-required="true" ng-pattern="/^[a-zA-Z\s]*$/" ng-trim="false" >
+          <label for="name">Customer Name</label>
+         <h6 style="color:red;font-size:0.8vw" ng-if="customer_create.name.$error.pattern">Name does not support special characters or Numbers</h6>
+          <h6 style="color:red;font-size:0.8vw" ng-if="customer_create.name.$dirty && customer_create.name.$error.required">Customer Name is Required</h6>
+        	</div>
+        	
+        	<div class="input-field">
+			<i class="material-icons prefix">contact_phone</i>
+          <input ng-model="x.contactNo" name="contactNo"  id="contactNo" type="text" class="validate" ng-minlength="10" ng-maxlength="10" ng-required="true" ng-pattern="/^[0-9]*$/" ng-trim="false" >
+          <label for="contactNo">Contact Number</label>
+         <h6 style="color:red;font-size:0.8vw" ng-if="customer_create.contactNo.$error.minlength">The Contact Number is of length 10</h6>
+        <h6 style="color:red;font-size:0.8vw" ng-if="customer_create.contactNo.$error.maxlength">Contact Number is of length 10</h6>
+         <h6 style="color:red;font-size:0.8vw" ng-if="customer_create.contactNo.$error.pattern">Please enter numbers only</h6>
+          <h6 style="color:red;font-size:0.8vw" ng-if="customer_create.contactNo.$dirty && customer_create.contactNo.$error.required">Contact Number is Required</h6>
+        	</div>
+        	
+        	<div class="input-field">
+			<i class="material-icons prefix">email</i>
+          <input ng-model="x.email" name="email" id="email"  type="email" class="validate" ng-required="true"  ng-trim="false">
+          <label for="email">Email</label>
+           <h6 style="color:red;font-size:0.8vw" ng-show="customer_create.email.$error.email">Invalid email</h6>
+          <h6 style="color:red;font-size:0.8vw" ng-show="customer_create.email.$dirty && customer_create.email.$error.required">Please Enter Email</h6>
+        	</div>
+        	
+        	<div class="input-field">
+			<i class="material-icons prefix">location_city</i>
+          <input ng-model="x.city" name="city" id="city"  type="text" class="validate" ng-required="true" ng-pattern="/^[a-zA-Z0-9 .,-/]+$/" ng-trim="false">
+          <label for="city">City</label>
+         <h6 style="color:red;font-size:0.8vw" ng-show="customer_create.city.$dirty && customer_create.city.$error.required">Please Enter City</h6>
+        	</div>
+        
+        	<div class="center">
+         <button class="btn waves-effect waves-light" type="submit" name="action" ng-disabled="customer_create.$invalid || exists">Submit
+    		<i class="material-icons right">send</i>
+  			</button>
+  			</div>
+  		</form>
+</div>

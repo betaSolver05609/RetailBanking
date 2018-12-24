@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Login
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: 1418661
+Implementation-Vendor-Id: com.tcs.ilp.LedFloyd
+Build-Jdk: 1.8.0_101
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/Login
+Created-By: Maven Integration for Eclipse
+

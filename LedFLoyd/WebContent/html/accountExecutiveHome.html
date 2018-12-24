@@ -1,0 +1,45 @@
+
+<div ng-if="customerTime">
+	<div class="w3-sidebar w3-light-grey w3-bar-block w3-container w3-center w3-animate-left"  style="width:17%" >
+		<h4 class="w3-bar-item" style="color:white">ACCOUNT EXECUTIVE</h4>
+	  <h3 class="w3-bar-item" style="color:orange">Customer Menu</h3>
+	  <a ui-sref = ".createCustomer"   class="w3-bar-item w3-btn">Create Customer</a>
+	  <a ui-sref = ".viewCustomer"     class="w3-bar-item w3-btn">View a Customer</a>
+	  <a ui-sref = ".viewAllCustomers" class="w3-bar-item w3-btn">View all Customers</a>
+	  <a ui-sref = ".updateCustomer"   class="w3-bar-item w3-btn">Update Customer</a>
+	  <a ui-sref = ".deleteCustomer"   class="w3-bar-item w3-btn">Delete Customer</a>
+	  <a ui-sref = ".accountAnalytics"   class="w3-bar-item w3-btn">Analytics</a> 
+	  <a ui-sref = "#"  id="swap" ng-click="switch_a_roo()"><i style="font-size:6vw;" class="material-icons prefix">swap_horiz</i></a>
+	  
+	</div>
+</div>
+<div ng-if="accountsTime">
+	<div class="w3-sidebar w3-light-grey w3-bar-block w3-container w3-center w3-animate-left"  style="width:17%">
+	<h4 class="w3-bar-item" style="color:white">ACCOUNT EXECUTIVE</h4>
+	  <h3 class="w3-bar-item" style="color:orange">Accounts Menu</h3>
+	  <a ui-sref = ".createAccount"   class="w3-bar-item w3-btn">Create Account</a>
+	  <a ui-sref = ".viewAccount"     class="w3-bar-item w3-btn">View a Account</a>
+	  <a ui-sref = ".viewAllAccounts" class="w3-bar-item w3-btn">View all Accounts</a>
+	  <a ui-sref = ".deleteAccount"   class="w3-bar-item w3-btn">Delete Account</a>
+	   <a ui-sref = "#" id="swap"  ng-click="switch_a_roo()"><i style="font-size:6vw;" class="material-icons prefix">swap_horiz</i></a>
+	</div>
+</div>
+<div class="row">
+<div class="col s2">
+</div>
+<div class="col s10">
+<div ui-view>
+<div  id="accountbg" align="center">
+<div id = "accountHeading">
+Hi There!
+</div>
+<br><br>
+<div id = "accountContent" class="container">
+We welcome you to LedFloyd Services!
+We hope you have a great day ahead.
+ Enjoy your day and make sure you don't mess things up.
+</div>
+</div>
+</div>
+</div>
+</div>

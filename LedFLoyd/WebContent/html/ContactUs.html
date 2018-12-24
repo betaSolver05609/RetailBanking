@@ -1,0 +1,33 @@
+
+<h1 style="color: indigo" class="center">Please Post Your Query Here.!</h1>
+<div class="container">
+<br><br>
+	<div class="container">
+	<form name="customer_create" ng-submit="customer_submit(x)" ng-init="exists=false" novalidate>
+       <div class="input-field center">
+       <input type="email" ng-model="email" id = "sonu" class="validate" ng-required="true">
+	   <label for="sonu">Enter Email</label>
+
+        </div>
+		
+		  <div class="row">
+    <form class="col s12" ng-submit="submission()">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">Enter brief description of your Problem</label>
+        </div>
+      </div>
+    </form>
+  </div>
+		
+	<div class="center">
+         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    		<i class="material-icons right">send</i>
+  			</button>
+  			</div>
+		
+		
+   		</form>
+		</div>
+</div>

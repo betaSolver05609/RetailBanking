@@ -1,0 +1,48 @@
+<div id="heading" align="center">View All Customers</div>
+<div>
+			<div class="input-field">
+ 			<i class="material-icons prefix">search</i>
+          <input id="icon_prefix" type="text" ng-model="search" >
+          <label for="icon_prefix">Search</label>
+          </div>
+<br>
+ <table>
+	<tr>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'customerId'; reverse=!reverse">Id</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'ssn'; reverse=!reverse">SSN</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'name'; reverse=!reverse">Name</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'contactNo'; reverse=!reverse">Contact No.</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'email'; reverse=!reverse">Email</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th><a href="" style="text-decoration:none" ng-click="sortField = 'city'; reverse=!reverse">City</a>
+		<span ng-show="!reverse"><i class="material-icons prefix">arrow_drop_up</i></span><span ng-show="reverse">
+		<i class="material-icons prefix">arrow_drop_down</i></span></span>
+		</th>
+		<th>DELETE</th>
+	</tr>
+	<tr dir-paginate="x in tableData | orderBy:sortField:reverse |filter: search | itemsPerPage:5">
+		<td>{{x.customerId}}</td>
+		<td>{{x.ssn}}</td>
+		<td>{{x.name}}</td>
+		<td>{{x.contactNo}}</td>
+		<td>{{x.email}}</td>
+		<td>{{x.city}}</td>
+		<td><a class="waves-effect waves-light btn" ng-click="deletion(x.ssn)">DELETE</a></td>
+	</tr>
+</table>
+<dir-pagination-controls max-size="5"> </dir-pagination-controls>
+</div>

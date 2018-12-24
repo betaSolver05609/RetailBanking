@@ -1,0 +1,59 @@
+<div id="heading" align="center">Delete Customer</div>
+<div class="container">
+	<form name="customer_update" ng-submit="customer_submit(value)">
+			<div class= "row">
+		          <div class="input-field col s6">
+		          <i class="material-icons prefix">delete</i>
+		          <input id="icon_prefix" type="text" name="value" ng-model="value" class="validate" min="100000000" max="999999999"ng-minlength="9" ng-maxlength="9" ng-required="true" ng-pattern="/^[0-9]*$/" ng-trim="false">
+		          <label for="icon_prefix">Enter the SSN</label>
+		 <h6 style="color:red" ng-if="customer_update.value.$error.minlength">The SSNID is of 9 digit</h6>
+        <h6 style="color:red" ng-if="customer_update.value.$error.maxlength">The SSNID is of 9 digit</h6>
+         <h6 style="color:red" ng-if="customer_update.value.$error.pattern">Please enter numbers only</h6>
+          <h6 style="color:red" ng-if="customer_update.value.$dirty && customer_update.value.$error.required">Required field</h6>
+		        </div>	
+		        <br>
+  			<div class="col s6">
+  			 <button class="btn waves-effect waves-light" type="submit" name="action" ng-disabled="customer_update.$invalid">Submit
+    	<i class="material-icons right">send</i>
+  		</button>
+  			</div>
+  			</div>
+  		</form>
+  		<div ng-if="displayData">
+  		 <div class="row">
+		    <div class="col s6 offset-s2">
+		      <div class="card blue-grey darken-1">
+		        <div class="card-content white-text center-align">
+		          <span class="card-title">DELETE CUSTOMER</span>
+		          	<div class="row">
+		          		SSN: {{tableData.ssn}}
+		          	</div>
+		          	<div class="row">
+		          		 Name: {{tableData.name}}
+		          	</div>
+		          	<div class="row">
+		          		Contact No: {{tableData.contactNo}}
+		          	</div>
+		          	<div class="row">
+		          		Email: {{tableData.email}}
+		          	</div>
+		          	<div class="row">
+		          		City: {{tableData.city}}
+		          	</div>
+		        </div>
+		        <div class="card-action center-align white-text">
+		           <div class="row">
+		           		 <div class="col s5 waves-effect waves-light btn" ng-click="deletion()">
+		           		 	DELETE
+		           		 </div>
+		           		 <div class="col s2"></div>
+		           		  <div class="col s5 waves-effect waves-light btn" ng-click="cancel()">
+		           		  	CANCEL
+		           		 </div>
+		           </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+  		</div>
+</div>
